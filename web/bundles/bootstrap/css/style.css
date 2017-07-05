@@ -1,0 +1,10 @@
+.container {
+    margin-top: 50px;
+}
+.product-list > .row{
+    padding: 5px !important;
+}
+.product-info {
+    font-size: 16px;
+    color: #050505;
+}

@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block body  %}
+<div class="container">
+    <div class="col-lg-12">
+        <form method="POST" action="{{ path('updateProduct', {'id': product.id}) }}">
+            <div class="row">
+               <div class="form-group row">
+                   <label for="formGroupExampleInput" class="col-lg-2">Name</label>
+                   <div class="col-lg-6">
+                       <input type="text" name="productName" value="{{ product.name }}" class="input form-control"  placeholder="Product's Name">
+                   </div>
+               </div>
+            </div>
+            <div class="row">
+                <div class="form-group row">
+                    <label for="formGroupExampleInput2" class="col-lg-2">Price</label>
+                    <div class="col-lg-6">
+                        <input type="text" name="productPrice" value="{{ product.price }}" class="input form-control"  placeholder="Product's Price">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <button class="btn btn-primary" type="submit">Save</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
