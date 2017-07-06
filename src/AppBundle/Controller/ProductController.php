@@ -13,10 +13,10 @@ use Doctrine\Common\Persistence\ManagerRegistry;
 
 class ProductController extends Controller
 {
-    /**
-     * @Route("/product/delete/{id}", name="deleteProduct")
-     * @Method({"GET","DELETE"})
-     */
+//    /**
+//     * @Route("/product/delete/{id}", name="deleteProduct")
+//     * @Method({"GET","DELETE"})
+//     */
     public function deleteAction($id, EntityManagerInterface $em)
     {
         $repository = $em->getRepository('AppBundle:Product');
@@ -25,13 +25,13 @@ class ProductController extends Controller
         $em->remove($product);
 
         $em->flush();
-        return $this->redirectToRoute('indexProduct');
+        return $this->redirectToRoute('product_index');
     }
 
-    /**
-     * @Route("/product/", name="storeProduct")
-     * @Method("POST")
-     */
+//    /**
+//     * @Route("/product/", name="storeProduct")
+//     * @Method("POST")
+//     */
     public function storeAction(Request $request, EntityManagerInterface $em)
     {
         $product = new Product();
@@ -44,23 +44,23 @@ class ProductController extends Controller
         } else {
             $em->persist($product);
             $em->flush();
-            return $this->redirectToRoute('indexProduct');
+            return $this->redirectToRoute('product_index');
         }
     }
 
-    /**
-     * @Route("/product/create", name="createProduct")
-     * @Method("GET")
-     */
+//    /**
+//     * @Route("/product/create", name="createProduct")
+//     * @Method("GET")
+//     */
     public function createAction(EntityManagerInterface $em)
     {
         return $this->render('AppBundle:product:create.html.twig');
     }
 
-    /**
-     * @Route("/product/", name="indexProduct")
-     * @Method("GET")
-     */
+//    /**
+//     * @Route("/product/", name="indexProduct")
+//     * @Method("GET")
+//     */
     public function indexAction(EntityManagerInterface $em)
     {
         $repository = $em->getRepository('AppBundle:Product');
@@ -81,10 +81,10 @@ class ProductController extends Controller
 //        return $this->render('product/showProduct.html.twig',  array(
 //            "product" => $product));
 //    }
-    /**
-     * @Route("/product/{id}/edit", name="editProduct")
-     * @Method("GET")
-     */
+//    /**
+//     * @Route("/product/{id}/edit", name="editProduct")
+//     * @Method("GET")
+//     */
     public function editAction(EntityManagerInterface $em, $id)
     {
         $repository = $em->getRepository('AppBundle:Product');
@@ -94,10 +94,10 @@ class ProductController extends Controller
             "product" => $product));
     }
 
-    /**
-     * @Route("/product/{id}", name="updateProduct")
-     * @Method("POST")
-     */
+//    /**
+//     * @Route("/product/{id}", name="updateProduct")
+//     * @Method("POST")
+//     */
     public function updateAction(Request $request, EntityManagerInterface $em, $id)
     {
         $product = $em->getRepository('AppBundle:Product')->find($id);
@@ -113,7 +113,7 @@ class ProductController extends Controller
 
         $em->flush();
 
-        return $this->redirectToRoute('indexProduct', array(
+        return $this->redirectToRoute('product_index', array(
             "id" => $id));
     }
 

@@ -10,13 +10,13 @@
                             <div class="product-info"> {{ product.name }} - {{ product.price }} </div>
                         </div>
                         <div class="col-lg-2">
-                            <a href="{{ path('editProduct', {'id': product.id}) }}" type="button" class="edit-make-button btn btn-info" >Edit<i class="fa fa-pencil"></i></a>
+                            <a href="{{ path('product_edit', {'id': product.id}) }}" type="button" class="edit-make-button btn btn-info" >Edit<i class="fa fa-pencil"></i></a>
                         </div>
-                        <a href="{{ path('deleteProduct', {'id': product.id}) }}" type="button" class="delete-make-button btn btn-danger">Delete</a>
+                        <a href="{{ path('product_delete', {'id': product.id}) }}" type="button" class="delete-make-button btn btn-danger">Delete</a>
                     </div>
                 {% endfor %}
                 <div class="col-lg-12">
-                    <a type="button" class="add btn btn-success" href="{{ path('createProduct') }}">Add Product</a>
+                    <a type="button" class="add btn btn-success" href="{{ path('product_create') }}">Add Product</a>
                 </div>
             </div>
         </div>
