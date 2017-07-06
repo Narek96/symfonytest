@@ -3,13 +3,9 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Product;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Component\HttpFoundation\Response;
-use Doctrine\Common\Persistence\ManagerRegistry;
 
 class ProductController extends Controller
 {
@@ -48,19 +44,13 @@ class ProductController extends Controller
         }
     }
 
-//    /**
-//     * @Route("/product/create", name="createProduct")
-//     * @Method("GET")
-//     */
+
     public function createAction(EntityManagerInterface $em)
     {
         return $this->render('AppBundle:product:create.html.twig');
     }
 
-//    /**
-//     * @Route("/product/", name="indexProduct")
-//     * @Method("GET")
-//     */
+
     public function indexAction(EntityManagerInterface $em)
     {
         $repository = $em->getRepository('AppBundle:Product');
@@ -94,10 +84,7 @@ class ProductController extends Controller
             "product" => $product));
     }
 
-//    /**
-//     * @Route("/product/{id}", name="updateProduct")
-//     * @Method("POST")
-//     */
+
     public function updateAction(Request $request, EntityManagerInterface $em, $id)
     {
         $product = $em->getRepository('AppBundle:Product')->find($id);

@@ -123,75 +123,75 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
         }
 
         if (0 === strpos($pathinfo, '/product')) {
-            // deleteProduct
+            // product_delete
             if (0 === strpos($pathinfo, '/product/delete') && preg_match('#^/product/delete/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                if (!in_array($canonicalMethod, array('GET', 'DELETE'))) {
-                    $allow = array_merge($allow, array('GET', 'DELETE'));
-                    goto not_deleteProduct;
+                if ('GET' !== $canonicalMethod) {
+                    $allow[] = 'GET';
+                    goto not_product_delete;
                 }
 
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'deleteProduct')), array (  '_controller' => 'AppBundle\\Controller\\ProductController::deleteAction',));
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'product_delete')), array (  '_controller' => 'AppBundle\\Controller\\ProductController::deleteAction',));
             }
-            not_deleteProduct:
+            not_product_delete:
 
-            // storeProduct
-            if ('/product/' === $pathinfo) {
+            // product_store
+            if ('/product' === $pathinfo) {
                 if ('POST' !== $canonicalMethod) {
                     $allow[] = 'POST';
-                    goto not_storeProduct;
+                    goto not_product_store;
                 }
 
-                return array (  '_controller' => 'AppBundle\\Controller\\ProductController::storeAction',  '_route' => 'storeProduct',);
+                return array (  '_controller' => 'AppBundle\\Controller\\ProductController::storeAction',  '_route' => 'product_store',);
             }
-            not_storeProduct:
+            not_product_store:
 
-            // createProduct
+            // product_create
             if ('/product/create' === $pathinfo) {
                 if ('GET' !== $canonicalMethod) {
                     $allow[] = 'GET';
-                    goto not_createProduct;
+                    goto not_product_create;
                 }
 
-                return array (  '_controller' => 'AppBundle\\Controller\\ProductController::createAction',  '_route' => 'createProduct',);
+                return array (  '_controller' => 'AppBundle\\Controller\\ProductController::createAction',  '_route' => 'product_create',);
             }
-            not_createProduct:
+            not_product_create:
 
-            // indexProduct
+            // product_index
             if ('/product' === $trimmedPathinfo) {
                 if ('GET' !== $canonicalMethod) {
                     $allow[] = 'GET';
-                    goto not_indexProduct;
+                    goto not_product_index;
                 }
 
                 if (substr($pathinfo, -1) !== '/') {
-                    return $this->redirect($pathinfo.'/', 'indexProduct');
+                    return $this->redirect($pathinfo.'/', 'product_index');
                 }
 
-                return array (  '_controller' => 'AppBundle\\Controller\\ProductController::indexAction',  '_route' => 'indexProduct',);
+                return array (  '_controller' => 'AppBundle\\Controller\\ProductController::indexAction',  '_route' => 'product_index',);
             }
-            not_indexProduct:
+            not_product_index:
 
-            // editProduct
+            // product_edit
             if (preg_match('#^/product/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
                 if ('GET' !== $canonicalMethod) {
                     $allow[] = 'GET';
-                    goto not_editProduct;
+                    goto not_product_edit;
                 }
 
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'editProduct')), array (  '_controller' => 'AppBundle\\Controller\\ProductController::editAction',));
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'product_edit')), array (  '_controller' => 'AppBundle\\Controller\\ProductController::editAction',));
             }
-            not_editProduct:
+            not_product_edit:
 
-            // updateProduct
+            // product_update
             if (preg_match('#^/product/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
                 if ('POST' !== $canonicalMethod) {
                     $allow[] = 'POST';
-                    goto not_updateProduct;
+                    goto not_product_update;
                 }
 
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'updateProduct')), array (  '_controller' => 'AppBundle\\Controller\\ProductController::updateAction',));
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'product_update')), array (  '_controller' => 'AppBundle\\Controller\\ProductController::updateAction',));
             }
-            not_updateProduct:
+            not_product_update:
 
         }
 
