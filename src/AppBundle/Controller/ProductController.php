@@ -40,7 +40,7 @@ class ProductController extends Controller
         $validator = $this->get('validator');
         $errors = $validator->validate($product);
         if (count($errors) > 0) {
-            return $this->render('product/create.html.twig', array('errors' => $errors));
+            return $this->render('AppBundle:product:create.html.twig', array('errors' => $errors));
         } else {
             $em->persist($product);
             $em->flush();
