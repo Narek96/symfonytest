@@ -9,10 +9,7 @@ use Doctrine\ORM\EntityManagerInterface;
 
 class ProductController extends Controller
 {
-//    /**
-//     * @Route("/product/delete/{id}", name="deleteProduct")
-//     * @Method({"GET","DELETE"})
-//     */
+
     public function deleteAction($id, EntityManagerInterface $em)
     {
         $repository = $em->getRepository('AppBundle:Product');
