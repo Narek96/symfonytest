@@ -1,3 +1,33 @@
 app:
     resource: '@AppBundle/Controller'
     type: annotation
+
+blog_delete:
+      path: /product/delete/{id}
+      default:  { _controller: AppBundle:product:delete }
+      methods:  [GET, HEAD]
+
+blog_store:
+          path: /product/
+          default: {_controller: AppBundle:product:store}
+          methods: [POST]
+
+blog_create:
+            path: /product/create
+            default: {_controller: AppBundle:product:create}
+            methods: [GET]
+
+blog_index:
+          path: /product/
+          default: {_controller: AppBundle:product:index}
+          methods: [GET]
+
+blog_edit:
+          path: /product/{id}/edit
+          default: {_controller:  AppBundle:product:edit}
+          methods: [GET]
+
+blog_update:
+            path: /product/{id}
+            default: {_controller:  AppBundle:product:update}
+            methods: [POST]

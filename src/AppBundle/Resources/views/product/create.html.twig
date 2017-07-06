@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'AppBundle::base.html.twig' %}
 
 {% block body %}
     <div class="container">
@@ -22,9 +22,9 @@
                 </div>
                 <div class="row">
                     <ul>
-                        {% for error in errors %}
-                            <li>{{ error.message }}</li>
-                        {% endfor %}
+                        {#{% for error in errors %}#}
+                            {#<li>{{ error.message }}</li>#}
+                        {#{% endfor %}#}
                     </ul>
                 </div>
                 <div class="row">

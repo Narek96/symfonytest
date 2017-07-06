@@ -54,7 +54,7 @@ class ProductController extends Controller
      */
     public function createAction(EntityManagerInterface $em)
     {
-        return $this->render('product/create.html.twig');
+        return $this->render('AppBundle:product:create.html.twig');
     }
 
     /**
@@ -66,7 +66,7 @@ class ProductController extends Controller
         $repository = $em->getRepository('AppBundle:Product');
         $products = $repository->findAll();
 
-        return $this->render('product/index.html.twig', array(
+        return $this->render('AppBundle:product:index.html.twig', array(
             "products" => $products));
     }
 //    /**
@@ -90,7 +90,7 @@ class ProductController extends Controller
         $repository = $em->getRepository('AppBundle:Product');
         $product = $repository->find($id);
 
-        return $this->render('product/update.html.twig', array(
+        return $this->render('AppBundle:product:update.html.twig', array(
             "product" => $product));
     }
 
